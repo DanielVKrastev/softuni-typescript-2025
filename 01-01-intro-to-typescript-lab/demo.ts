@@ -46,3 +46,33 @@ function movePoint(point: { x: number, y: number }, moveDirection: Directions){
 
 let point = { x: 0, y: 0 };
 console.log(movePoint(point, Directions.Right));
+
+/******************************************************************/
+function greetUser(username: string, addHello?: boolean) {
+    
+    if(addHello) {
+        return `Hello, ${username}`;
+    }
+
+    return username;
+
+};
+
+console.log(greetUser('Daniel', false));
+
+
+/******************************************************************/
+function isNumber(val: string | number): val is number{
+    return typeof val === 'number';
+};
+
+function formatData (a: string | number, b: string | number) {
+    if(isNumber(a) && isNumber(b)){
+        console.log(a + b);
+    }else{
+        console.log(`${a} --- ${b}`);
+        
+    }
+};
+
+console.log(formatData(1, 2));

@@ -5,6 +5,5 @@
     "sourceMap": true,
     "strict": true,
     "outDir": "out"
-  },
-  "include": ["**/*.ts"]
+  }
 }

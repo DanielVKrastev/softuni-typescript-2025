@@ -44,4 +44,28 @@ function movePoint(point, moveDirection) {
 ;
 let point = { x: 0, y: 0 };
 console.log(movePoint(point, Directions.Right));
+/******************************************************************/
+function greetUser(username, addHello) {
+    if (addHello) {
+        return `Hello, ${username}`;
+    }
+    return username;
+}
+;
+console.log(greetUser('Daniel', false));
+/******************************************************************/
+function isNumber(val) {
+    return typeof val === 'number';
+}
+;
+function formatData(a, b) {
+    if (isNumber(a) && isNumber(b)) {
+        console.log(a + b);
+    }
+    else {
+        console.log(`${a} --- ${b}`);
+    }
+}
+;
+console.log(formatData(1, 2));
 //# sourceMappingURL=demo.js.map
