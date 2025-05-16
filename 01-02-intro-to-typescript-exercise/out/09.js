@@ -18,7 +18,7 @@ function FridayThe13th(dates) {
     Array.isArray(dates);
     if (dates.length > 0) {
         dates.forEach(date => {
-            if (typeof date === 'object' && date !== null && date !== undefined) {
+            if (typeof date === 'object' && date !== null && date !== undefined && date instanceof Date) {
                 const newDate = new Date(date);
                 const numberDate = newDate.getDate();
                 const day = newDate.getDay();
