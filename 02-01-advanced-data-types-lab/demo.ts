@@ -27,7 +27,7 @@ function greet(humanId: Id){
     return humanId;
 }
 
-// intersection
+// custom type + intersection
 type Person = {
     id: Id;
     firstName: string;
@@ -63,3 +63,55 @@ let min4oPerson: Person = {
 };
 
 printStudentInfo(danielPerson);
+
+// keyof
+type Point = {
+    x: number;
+    y: number;
+};
+
+type PartialPoint = {
+    [K in keyof Point]?: Point[K] // ?optional
+};
+
+let partialOriginPoint: PartialPoint = {
+    x: 4
+}
+
+type KeysOfPoint = keyof Point; // x | y
+
+let originPoint: Point = {
+    x: 0,
+    y: 0
+};
+
+function changeCoordinate(point: Point, coordinateName: keyof Point, newValue: number){
+    point[coordinateName] = newValue;
+}
+
+changeCoordinate(originPoint, 'x', 5);
+console.log(originPoint);
+
+
+//--------
+type TreeNode = {
+    value: number;
+    leftChild?: TreeNode;
+    rightChild?: TreeNode;
+}
+
+const leftLeaf: TreeNode = {
+    value: 5
+}
+
+const rightLeaf: TreeNode = {
+    value: 10
+}
+
+const root: TreeNode = {
+    value: 3,
+    leftChild: leftLeaf,
+    rightChild: rightLeaf,
+}
+
+console.log(root);
