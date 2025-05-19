@@ -62,4 +62,18 @@ const root = {
     rightChild: rightLeaf,
 };
 console.log(root);
+class Dog {
+    name;
+    age;
+    constructor(n, a) {
+        this.name = n;
+        this.age = a;
+    }
+    makeSound(soundName) {
+        console.log(soundName);
+    }
+    ;
+}
+const doggie = new Dog('Suzi', 6);
+doggie.makeSound('baw');
 //# sourceMappingURL=demo.js.map

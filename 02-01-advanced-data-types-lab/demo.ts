@@ -115,3 +115,41 @@ const root: TreeNode = {
 }
 
 console.log(root);
+
+
+// Interfaces
+interface Animal {
+    name: string;
+    age: number;
+    makeSound: (soundName: string) => void;
+}
+
+class Dog implements Animal {
+    public name: string;
+    public age: number;
+
+    constructor(n: string, a: number) {
+        this.name = n;
+        this.age = a;
+    }
+
+    public makeSound(soundName: string): void {
+        console.log(soundName);
+    };
+}
+
+const doggie = new Dog('Suzi', 6);
+doggie.makeSound('baw');
+
+// Extends interfaces
+interface Person2 {
+    id: Id;
+    firstName: string;
+    lastName: string;
+    age: number
+};
+
+interface StudentProfile2 extends Person2 {
+    school: string;
+    gpa: number;
+};
