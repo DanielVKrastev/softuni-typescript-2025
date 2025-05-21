@@ -11,12 +11,13 @@ function httpCodes(httpCode) {
         case 404:
         case 500: console.log(httpCode.text.slice(0, httpCode.printChars));
     }
-    if ('printChars' in httpCode) {
+    /*
+    if('printChars' in httpCode){
         console.log(httpCode.text.slice(0, httpCode.printChars));
-    }
-    else {
+    }else{
         console.log(httpCode.text);
     }
+    */
 }
 httpCodes({ code: 200, text: 'OK' });
 httpCodes({ code: 201, text: 'Created' });
