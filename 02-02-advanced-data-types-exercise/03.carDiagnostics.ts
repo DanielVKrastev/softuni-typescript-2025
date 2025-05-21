@@ -9,9 +9,9 @@ type diagnostics = { partName: string, runDiagnostics: () => string };
 type speedometer = { speed: number };
 
 function createCar(
-    carBody: carBodyType & diagnostics & speedometer,
-    tires: tiresType & diagnostics & speedometer,
-    engine: engineType & diagnostics & speedometer,
+    carBody: carBodyType & diagnostics ,
+    tires: tiresType & diagnostics,
+    engine: engineType & diagnostics,
 ) {
 
 }
