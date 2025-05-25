@@ -8,10 +8,11 @@ type c = {
     [k in keyof typeof test]: typeof test[k]
 };*/
 Object.defineProperty(exports, "__esModule", { value: true });
-function returnTest() {
-    let a = { name: 'pesho', age: 20, lucky: true };
-    return a;
-}
-let b = returnTest();
-console.log(b);
+let person = {
+    name: 'Pesho',
+    ageInfo: {
+        age: 12
+    }
+};
+let c = person;
 //# sourceMappingURL=test.js.map

@@ -8,6 +8,7 @@ type c = {
 };*/
 
 
+/*
 //type test = { name: 'pesho' | 'gosho', age: number }
 type test = { name: string, age: number }
 
@@ -18,3 +19,27 @@ function returnTest(): test {
 
 let b = returnTest();
 console.log(b);
+*/
+
+type test = {
+    name: string,
+    ageInfo: {
+        age: number
+    }
+};
+
+type test2 = {
+    name: 'Pesho' | 'Goshko',
+    ageInfo: {
+        age: number
+    }
+};
+
+let person: test2 = {
+    name: 'Pesho',
+    ageInfo: {
+        age: 12
+    }
+}
+
+let c: test = person;
