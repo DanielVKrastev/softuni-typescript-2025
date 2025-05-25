@@ -1,3 +1,4 @@
+/*
 class Person {
     greet(num: number): void;
     greet(fName: string, lName: string): void;
@@ -23,3 +24,19 @@ let obj:Barker = { bark() { return '20' }}
 
 type a = Person | never;
 type b = string & number; //never
+*/
+
+class Person {
+    _name!: string; // !
+    constructor(name: string) {
+        this.name = name;
+    }
+    
+    get name() {
+        return this._name;
+    }
+
+    set name(val: string) {
+        this._name = val;
+    }
+}
