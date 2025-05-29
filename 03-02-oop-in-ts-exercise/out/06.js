@@ -16,6 +16,14 @@ class Employee {
         return `Salary: $${this.salary}`;
     }
 }
+/*
+class Manager extends Employee{
+    public test(): void {
+        console.log(this.salary);
+        
+    }
+}
+*/
 const emp = new Employee("Alice", "Manager", 5000);
 console.log(emp.getDetails());
 console.log(emp.showSalary());
