@@ -1,4 +1,4 @@
-// ! Generic Iterfaces
+// ! Generic Interfaces
 
 interface Message<T> {
     sender: string;

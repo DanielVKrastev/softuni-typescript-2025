@@ -1,5 +1,5 @@
 "use strict";
-// ! Generic Iterfaces
+// ! Generic Interfaces
 Object.defineProperty(exports, "__esModule", { value: true });
 ;
 const message1 = {
