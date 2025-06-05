@@ -45,6 +45,8 @@ codesCounterSet.add(404);
 codesCounterSet.add(200);
 console.log(codesCounterSet.contains(404));
 console.log(codesCounterSet.getNumberOfCopies(200));
-codesCounterSet.add(205); //TS Error
-codesCounterSet.getNumberOfCopies(350); //TS Error
+/*
+codesCounterSet.add(205);   //TS Error
+codesCounterSet.getNumberOfCopies(350);    //TS Error
+*/ 
 //# sourceMappingURL=02.js.map
