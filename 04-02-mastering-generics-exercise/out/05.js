@@ -35,10 +35,20 @@ class Logger {
         return this.format;
     }
 }
-let logger = new Logger(LoggingFormat.Minimal);
+let logger = new Logger(LoggingFormat.Standard);
+logger.log(LoggingLevel.Info, "This is an info message.");
+logger.log(LoggingLevel.Info, "Another message.");
+logger.log(LoggingLevel.Error, "Something went wrong.");
+logger.log(LoggingLevel.Warning, "Be careful with the type assertions.");
+logger.log(LoggingLevel.Debug, "Running the debugger.");
+console.log('-----------');
+console.log([...logger.cachedLogs.entries()].map(x => x[1].join('\n')).join('\n'));
+/*
+let logger = new Logger<LoggingLevel, LoggingFormat>(LoggingFormat.Minimal);
 logger.log(LoggingLevel.Info, "Just a simple message.");
 logger.log(LoggingLevel.Error, "A Problem happened.");
-console.log('-----------');
+console.log('-----------')
 console.log(logger.getFormat());
-console.log([...logger.cachedLogs.entries()].map(x => x[1].join('\n')).join('\n'));
+console.log([...logger.cachedLogs.entries()].map(x => x[1].join('\n')).join('\n'))
+*/
 //# sourceMappingURL=05.js.map
