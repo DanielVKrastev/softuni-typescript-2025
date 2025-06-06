@@ -6,8 +6,14 @@ function LogClass(constructor: Function){
 
 function LogAccessor(target: any, propertyName: string, descriptor: PropertyDescriptor){
     console.log('***********************');
-    console.log(`Accessors for property ${propertyName} name`);
+    console.log(`Accessors for property ${propertyName} created!`);
     console.log('***********************');
+}
+
+function LogMethod(target: any, methodName: string, descriptor: PropertyDescriptor){
+    console.log('==========================');
+    console.log(`Method ${methodName} created!`);
+    console.log('==========================');
 }
 
 @LogClass
@@ -32,6 +38,7 @@ class User {
         this._email = val;
     }
 
+    @LogMethod
     getInfo(condensed: boolean): string{
         return condensed ? `Person ${this.name}` : `Person ${this.name} is ${this.age} years old with email: ${this.email}`;
     }

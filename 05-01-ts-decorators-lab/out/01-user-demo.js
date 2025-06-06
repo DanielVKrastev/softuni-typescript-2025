@@ -16,8 +16,13 @@ function LogClass(constructor) {
 }
 function LogAccessor(target, propertyName, descriptor) {
     console.log('***********************');
-    console.log(`Accessors for property ${propertyName} name`);
+    console.log(`Accessors for property ${propertyName} created!`);
     console.log('***********************');
+}
+function LogMethod(target, methodName, descriptor) {
+    console.log('==========================');
+    console.log(`Method ${methodName} created!`);
+    console.log('==========================');
 }
 let User = class User {
     name;
@@ -43,6 +48,12 @@ __decorate([
     __metadata("design:type", String),
     __metadata("design:paramtypes", [String])
 ], User.prototype, "email", null);
+__decorate([
+    LogMethod,
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Boolean]),
+    __metadata("design:returntype", String)
+], User.prototype, "getInfo", null);
 User = __decorate([
     LogClass,
     __metadata("design:paramtypes", [String, Number, String])
