@@ -8,21 +8,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 function LogClass(constructor) {
     console.log('------------------------------');
     console.log('Class created!');
-    console.log('------------------------------');
+    console.log('------------------------------\n');
 }
 function LogAccessor(target, propertyName, descriptor) {
     console.log('***********************');
     console.log(`Accessors for property ${propertyName} created!`);
-    console.log('***********************');
+    console.log('***********************\n');
 }
 function LogMethod(target, methodName, descriptor) {
     console.log('==========================');
     console.log(`Method ${methodName} created!`);
-    console.log('==========================');
+    console.log('==========================\n');
+}
+function LogProperty(target, propertyName) {
+    console.log('++++++++++++++++++++++++++++++++');
+    console.log(`Property ${propertyName} creadted!`);
+    console.log('++++++++++++++++++++++++++++++++\n');
+}
+function LogParameter(target, methodName, parameterIndex) {
+    console.log('................................');
+    console.log(`Parameter #${parameterIndex} for method ${methodName} created!`);
+    console.log('................................\n');
 }
 let User = class User {
     name;
@@ -39,10 +52,14 @@ let User = class User {
     set email(val) {
         this._email = val;
     }
-    getInfo(condensed) {
+    getInfo(condensed, test) {
         return condensed ? `Person ${this.name}` : `Person ${this.name} is ${this.age} years old with email: ${this.email}`;
     }
 };
+__decorate([
+    LogProperty,
+    __metadata("design:type", String)
+], User.prototype, "name", void 0);
 __decorate([
     LogAccessor,
     __metadata("design:type", String),
@@ -50,8 +67,10 @@ __decorate([
 ], User.prototype, "email", null);
 __decorate([
     LogMethod,
+    __param(0, LogParameter),
+    __param(1, LogParameter),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Boolean]),
+    __metadata("design:paramtypes", [Boolean, String]),
     __metadata("design:returntype", String)
 ], User.prototype, "getInfo", null);
 User = __decorate([

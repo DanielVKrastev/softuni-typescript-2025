@@ -1,23 +1,35 @@
 function LogClass(constructor: Function){
     console.log('------------------------------');
     console.log('Class created!');
-    console.log('------------------------------');
+    console.log('------------------------------\n');
 }
 
 function LogAccessor(target: any, propertyName: string, descriptor: PropertyDescriptor){
     console.log('***********************');
     console.log(`Accessors for property ${propertyName} created!`);
-    console.log('***********************');
+    console.log('***********************\n');
 }
 
 function LogMethod(target: any, methodName: string, descriptor: PropertyDescriptor){
     console.log('==========================');
     console.log(`Method ${methodName} created!`);
-    console.log('==========================');
+    console.log('==========================\n');
 }
 
+function LogProperty(target: any, propertyName: string) {
+    console.log('++++++++++++++++++++++++++++++++');
+    console.log(`Property ${propertyName} creadted!`);
+    console.log('++++++++++++++++++++++++++++++++\n');
+}
+
+function LogParameter(target: any, methodName: string, parameterIndex: number){
+    console.log('................................');
+    console.log(`Parameter #${parameterIndex} for method ${methodName} created!`);
+    console.log('................................\n');
+}
 @LogClass
 class User {
+    @LogProperty
     name: string;
     age: number;
 
@@ -39,7 +51,7 @@ class User {
     }
 
     @LogMethod
-    getInfo(condensed: boolean): string{
+    getInfo(@LogParameter condensed: boolean, @LogParameter test: string): string{
         return condensed ? `Person ${this.name}` : `Person ${this.name} is ${this.age} years old with email: ${this.email}`;
     }
 }
