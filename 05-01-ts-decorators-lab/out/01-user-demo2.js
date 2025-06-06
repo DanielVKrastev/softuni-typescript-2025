@@ -19,7 +19,15 @@ function ValidateStringAccessor(target, propertyName, descriptor) {
         if (val.length < 3) {
             throw new Error('Lenght must be minimum 3 characters.');
         }
-        originalSetter?.call(this, val);
+        originalSetter?.call(this, val); //call -> one by one
+    };
+    return descriptor;
+}
+function DepricatedMethod(target, methodName, descriptor) {
+    const originalMethod = descriptor.value;
+    descriptor.value = function (...args) {
+        console.log(`Caution! Method ${methodName} is depricated! Consider using another one`);
+        return originalMethod.apply(this, args); //apply -> in array
     };
     return descriptor;
 }
@@ -47,12 +55,19 @@ __decorate([
     __metadata("design:type", String),
     __metadata("design:paramtypes", [String])
 ], User.prototype, "email", null);
+__decorate([
+    DepricatedMethod,
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Boolean]),
+    __metadata("design:returntype", String)
+], User.prototype, "getInfo", null);
 User = __decorate([
     FreezeClass,
     __metadata("design:paramtypes", [String, Number, String])
 ], User);
 const user1 = new User('Daniel', 24, 'daniel@gmail.bg');
-user1.email = 'ad';
+// user1.email = 'ad';
 // console.log(Object.isFrozen(User));
 // console.log(Object.isFrozen((User.prototype)));
+console.log(user1.getInfo(false));
 //# sourceMappingURL=01-user-demo2.js.map
