@@ -1,9 +1,13 @@
 function LogClass(constructor: Function){
-    console.log(constructor);
-
     console.log('------------------------------');
     console.log('Class created!');
     console.log('------------------------------');
+}
+
+function LogAccessor(target: any, propertyName: string, descriptor: PropertyDescriptor){
+    console.log('***********************');
+    console.log(`Accessors for property ${propertyName} name`);
+    console.log('***********************');
 }
 
 @LogClass
@@ -19,6 +23,7 @@ class User {
         this.email = email;
     }
 
+    @LogAccessor
     get email(){
         return this._email;
     }
@@ -32,7 +37,7 @@ class User {
     }
 }
 
-@LogClass
+//@LogClass
 class Employee {
     name: string = 'Daniel';
     salary: number = 2000;
