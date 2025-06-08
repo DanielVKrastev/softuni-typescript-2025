@@ -32,6 +32,6 @@ __decorate([
     __metadata("design:type", Number),
     __metadata("design:paramtypes", [Number])
 ], Age.prototype, "age", null);
-let ageVal = new Age(10);
-ageVal.age = -2;
+let ageVal = new Age(-10);
+ageVal.age = 2;
 //# sourceMappingURL=02.js.map
