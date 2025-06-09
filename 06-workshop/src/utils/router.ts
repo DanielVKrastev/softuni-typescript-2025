@@ -5,6 +5,7 @@ export class Router {
 
     constructor(routes: Routes){
         this.routes = routes;
+        this.navigate(window.location.pathname);
     }
 
     navigate(pathName: string) {
