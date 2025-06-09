@@ -11,6 +11,16 @@ const router = new Router({
 });
 
 function setupLinks() {
+    const allLinks = document.querySelectorAll('nav a');
+
+    allLinks.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            router.navigate((link as HTMLAnchorElement).pathname);
+        });
+    })
+
+    /*
     const postsLinkEl = document.getElementById('posts-link');
     const usersLinkEl = document.getElementById('users-link');
     const createPostLinkEl = document.getElementById('create-post-link');
@@ -35,6 +45,7 @@ function setupLinks() {
             router.navigate('/posts/create');
         })
     }
+    */
 }
 
 setupLinks();
