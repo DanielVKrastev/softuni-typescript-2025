@@ -1,4 +1,4 @@
-export class ApiService<T> {
+export abstract class ApiService<T> {
     protected baseServiceUrl: string;
 
     constructor(url: string) {
