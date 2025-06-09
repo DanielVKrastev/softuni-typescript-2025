@@ -1,6 +1,6 @@
 import { log } from "../decorators";
 
-export abstract class ApiService<T> {
+export abstract class ApiService<T, CreateT = T> {
     protected baseServiceUrl: string;
 
     constructor(url: string) {
@@ -14,7 +14,7 @@ export abstract class ApiService<T> {
     }
 
     @log
-    async create(item: T): Promise<T> {
+    async create(item: CreateT): Promise<T> {
         const res = await fetch(this.baseServiceUrl, {
             method: 'POST',
             headers: {
