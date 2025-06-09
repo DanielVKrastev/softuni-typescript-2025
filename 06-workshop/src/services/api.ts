@@ -1,3 +1,5 @@
+import { log } from "../decorators";
+
 export abstract class ApiService<T> {
     protected baseServiceUrl: string;
 
@@ -5,11 +7,13 @@ export abstract class ApiService<T> {
         this.baseServiceUrl = url;
     }
 
+    @log
     async getAll(): Promise<T[]> {
         const res = await fetch(this.baseServiceUrl);
         return await res.json();
     }
 
+    @log
     async create(item: T): Promise<T> {
         const res = await fetch(this.baseServiceUrl, {
             method: 'POST',
@@ -22,6 +26,7 @@ export abstract class ApiService<T> {
         return await res.json();
     }
 
+    @log
     async update(id: number, item: T): Promise<T> {
         const res = await fetch(`${this.baseServiceUrl}/${id}`, {
             method: 'PUT',
@@ -34,6 +39,7 @@ export abstract class ApiService<T> {
         return await res.json();
     }
 
+    @log
     async delete(id: number): Promise<void> {
         await fetch(`${this.baseServiceUrl}/${id}`, {
             method: 'DELETE',
