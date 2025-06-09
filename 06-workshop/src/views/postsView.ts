@@ -4,7 +4,7 @@ import { HtmlRenderer } from "../utils/html";
 
 const postsService = new PostService();
 
-export async function postTemplate(): Promise<void> {
+export async function postsTemplate(): Promise<void> {
     const posts = await postsService.getAll();
 
     const template = `
