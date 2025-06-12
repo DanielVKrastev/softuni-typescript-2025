@@ -4,7 +4,7 @@ import { Language } from "./contracts/language";
 import { LanguageMessageEncoder } from "./languageMessageEncoder";
 import { LowercaseCharactersOnlyLanguage } from "./contracts/implemented/lowercaseCharactersOnlyLanguage";
 import { PartialMessageEncoder } from "./contracts/implemented/partialMessageEncoder";
-import dn
+import { DNACodeLanguage } from "./dnaCodeLanguage";
 // Example 1
 
 // let lowercaseCharsLanguage = new LowercaseCharactersOnlyLanguage();
@@ -57,23 +57,23 @@ import dn
 
 // Example 4
 
-let dnaCharsLanguage = new DNACodeLanguage();
-let caesarCipher = new CaesarCipher(dnaCharsLanguage);
-let encoder = new LanguageMessageEncoder<DNACodeLanguage, CaesarCipher<DNACodeLanguage>>(dnaCharsLanguage, caesarCipher);
+// let dnaCharsLanguage = new DNACodeLanguage();
+// let caesarCipher = new CaesarCipher(dnaCharsLanguage);
+// let encoder = new LanguageMessageEncoder<DNACodeLanguage, CaesarCipher<DNACodeLanguage>>(dnaCharsLanguage, caesarCipher);
 
-let encodedMessage = encoder.encodeMessage('ACGT');
-console.log(encodedMessage);
-let decodedMessage = encoder.decodeMessage(encodedMessage);
-console.log(decodedMessage);
-let encodedMessage2 = encoder.encodeMessage('GAGCCCTCA');
-console.log(encodedMessage2);
-let decodedMessage2 = encoder.decodeMessage(encodedMessage2);
-console.log(decodedMessage2);
-let decodedMessage3 = encoder.decodeMessage('AGGCAT');
-console.log(decodedMessage3);
-let decodedMessage4 = encoder.decodeMessage('DACG');
-console.log(decodedMessage4);
-console.log(encoder.totalProcessedCharacters('Both'));
+// let encodedMessage = encoder.encodeMessage('ACGT');
+// console.log(encodedMessage);
+// let decodedMessage = encoder.decodeMessage(encodedMessage);
+// console.log(decodedMessage);
+// let encodedMessage2 = encoder.encodeMessage('GAGCCCTCA');
+// console.log(encodedMessage2);
+// let decodedMessage2 = encoder.decodeMessage(encodedMessage2);
+// console.log(decodedMessage2);
+// let decodedMessage3 = encoder.decodeMessage('AGGCAT');
+// console.log(decodedMessage3);
+// let decodedMessage4 = encoder.decodeMessage('DACG');
+// console.log(decodedMessage4);
+// console.log(encoder.totalProcessedCharacters('Both'));
 
 
 
