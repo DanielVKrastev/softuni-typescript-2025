@@ -4,23 +4,23 @@ import { Language } from "./contracts/language";
 import { LanguageMessageEncoder } from "./languageMessageEncoder";
 import { LowercaseCharactersOnlyLanguage } from "./contracts/implemented/lowercaseCharactersOnlyLanguage";
 import { PartialMessageEncoder } from "./contracts/implemented/partialMessageEncoder";
-
+import dn
 // Example 1
 
-let lowercaseCharsLanguage = new LowercaseCharactersOnlyLanguage();
-let caesarCipher = new CaesarCipher(lowercaseCharsLanguage);
-let encoder = new LanguageMessageEncoder<LowercaseCharactersOnlyLanguage, CaesarCipher<LowercaseCharactersOnlyLanguage>>(lowercaseCharsLanguage, caesarCipher);
+// let lowercaseCharsLanguage = new LowercaseCharactersOnlyLanguage();
+// let caesarCipher = new CaesarCipher(lowercaseCharsLanguage);
+// let encoder = new LanguageMessageEncoder<LowercaseCharactersOnlyLanguage, CaesarCipher<LowercaseCharactersOnlyLanguage>>(lowercaseCharsLanguage, caesarCipher);
 
-let encodedMessage = encoder.encodeMessage('the carthaginians are coming');
-console.log(encodedMessage);
-let decodedMessage = encoder.decodeMessage(encodedMessage);
-console.log(decodedMessage);
-console.log(encoder.totalProcessedCharacters('Both'));
-let encodedMessage2 = encoder.encodeMessage('!abc_');
-console.log(encodedMessage2);
-let decodedMessage2 = encoder.decodeMessage(encodedMessage2);
-console.log(decodedMessage2);
-console.log(encoder.totalProcessedCharacters('Encoded'));
+// let encodedMessage = encoder.encodeMessage('the carthaginians are coming');
+// console.log(encodedMessage);
+// let decodedMessage = encoder.decodeMessage(encodedMessage);
+// console.log(decodedMessage);
+// console.log(encoder.totalProcessedCharacters('Both'));
+// let encodedMessage2 = encoder.encodeMessage('!abc_');
+// console.log(encodedMessage2);
+// let decodedMessage2 = encoder.decodeMessage(encodedMessage2);
+// console.log(decodedMessage2);
+// console.log(encoder.totalProcessedCharacters('Encoded'));
 
 
 
@@ -57,23 +57,23 @@ console.log(encoder.totalProcessedCharacters('Encoded'));
 
 // Example 4
 
-// let dnaCharsLanguage = new DNACodeLanguage();
-// let caesarCipher = new CaesarCipher(dnaCharsLanguage);
-// let encoder = new LanguageMessageEncoder<DNACodeLanguage, CaesarCipher<DNACodeLanguage>>(dnaCharsLanguage, caesarCipher);
+let dnaCharsLanguage = new DNACodeLanguage();
+let caesarCipher = new CaesarCipher(dnaCharsLanguage);
+let encoder = new LanguageMessageEncoder<DNACodeLanguage, CaesarCipher<DNACodeLanguage>>(dnaCharsLanguage, caesarCipher);
 
-// let encodedMessage = encoder.encodeMessage('ACGT');
-// console.log(encodedMessage);
-// let decodedMessage = encoder.decodeMessage(encodedMessage);
-// console.log(decodedMessage);
-// let encodedMessage2 = encoder.encodeMessage('GAGCCCTCA');
-// console.log(encodedMessage2);
-// let decodedMessage2 = encoder.decodeMessage(encodedMessage2);
-// console.log(decodedMessage2);
-// let decodedMessage3 = encoder.decodeMessage('AGGCAT');
-// console.log(decodedMessage3);
-// let decodedMessage4 = encoder.decodeMessage('DACG');
-// console.log(decodedMessage4);
-// console.log(encoder.totalProcessedCharacters('Both'));
+let encodedMessage = encoder.encodeMessage('ACGT');
+console.log(encodedMessage);
+let decodedMessage = encoder.decodeMessage(encodedMessage);
+console.log(decodedMessage);
+let encodedMessage2 = encoder.encodeMessage('GAGCCCTCA');
+console.log(encodedMessage2);
+let decodedMessage2 = encoder.decodeMessage(encodedMessage2);
+console.log(decodedMessage2);
+let decodedMessage3 = encoder.decodeMessage('AGGCAT');
+console.log(decodedMessage3);
+let decodedMessage4 = encoder.decodeMessage('DACG');
+console.log(decodedMessage4);
+console.log(encoder.totalProcessedCharacters('Both'));
 
 
 
