@@ -28,4 +28,20 @@ export class LanguageMessageEncoder<TLanguage extends Language, TCipher extends 
         return encodedMessage;
     }
 
+    public decodeMessage(secretMessage: unknown): string {
+        if(typeof secretMessage !== 'string' || secretMessage.length === 0) {
+            return "No message.";
+        }
+
+        const isCompatible = this.language.isCompatibleToCharset(secretMessage);
+
+        if(!isCompatible) {
+            return "Message not compatible.";
+        }
+
+        const decodedMessage = this.cipher.decipher(secretMessage);
+        this.decodedCount += decodedMessage.length;
+        return decodedMessage;
+    }
+
 }
