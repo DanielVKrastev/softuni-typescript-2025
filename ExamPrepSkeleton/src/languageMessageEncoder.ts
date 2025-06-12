@@ -5,8 +5,8 @@ import { MessageEncoder } from "./contracts/messageEncoder";
 import { ProccessedCharsType } from "./types";
 
 export class LanguageMessageEncoder<TLanguage extends Language, TCipher extends Cipher<TLanguage>> extends PartialMessageEncoder implements MessageEncoder{
-    private encodedCount = 0;
-    private decodedCount = 0;
+    private encodedCharsCount = 0;
+    private decodedCharsCount = 0;
 
     constructor(language: TLanguage, cipher: TCipher) {
         super(language, cipher);
@@ -25,7 +25,7 @@ export class LanguageMessageEncoder<TLanguage extends Language, TCipher extends 
         }
 
         const encodedMessage = this.cipher.encipher(strippedMessage);
-        this.encodedCount += encodedMessage.length;
+        this.encodedCharsCount += encodedMessage.length;
         return encodedMessage;
     }
 
@@ -41,7 +41,7 @@ export class LanguageMessageEncoder<TLanguage extends Language, TCipher extends 
         }
 
         const decodedMessage = this.cipher.decipher(secretMessage);
-        this.decodedCount += decodedMessage.length;
+        this.decodedCharsCount += decodedMessage.length;
         return decodedMessage;
     }
 
@@ -49,16 +49,21 @@ export class LanguageMessageEncoder<TLanguage extends Language, TCipher extends 
         let totalChars = 0;
         switch(type) {
             case "Encoded":
-                totalChars = this.encodedCount;
+                totalChars = this.encodedCharsCount;
                 break;
             case "Decoded":
-                totalChars = this.decodedCount;
+                totalChars = this.decodedCharsCount;
                 break;
             case "Both":
-                totalChars = this.encodedCount + this.decodedCount;
+                totalChars = this.encodedCharsCount + this.decodedCharsCount;
                 break;
         }
         return `Total processed characters count: ${totalChars}`;
     }
 
+    protected stripForbiddenSymbols(message: string): string {
+        let forbiddenSymbols = PartialMessageEncoder.forbiddenSymbols;
+        forbiddenSymbols.forEach(x => message = message.replaceAll(x, ''));
+        return message;
+    }
 }

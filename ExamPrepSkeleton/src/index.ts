@@ -7,20 +7,20 @@ import { PartialMessageEncoder } from "./contracts/implemented/partialMessageEnc
 
 // Example 1
 
-// let lowercaseCharsLanguage = new LowercaseCharactersOnlyLanguage();
-// let caesarCipher = new CaesarCipher(lowercaseCharsLanguage);
-// let encoder = new LanguageMessageEncoder<LowercaseCharactersOnlyLanguage, CaesarCipher<LowercaseCharactersOnlyLanguage>>(lowercaseCharsLanguage, caesarCipher);
+let lowercaseCharsLanguage = new LowercaseCharactersOnlyLanguage();
+let caesarCipher = new CaesarCipher(lowercaseCharsLanguage);
+let encoder = new LanguageMessageEncoder<LowercaseCharactersOnlyLanguage, CaesarCipher<LowercaseCharactersOnlyLanguage>>(lowercaseCharsLanguage, caesarCipher);
 
-// let encodedMessage = encoder.encodeMessage('the carthaginians are coming');
-// console.log(encodedMessage);
-// let decodedMessage = encoder.decodeMessage(encodedMessage);
-// console.log(decodedMessage);
-// console.log(encoder.totalProcessedCharacters('Both'));
-// let encodedMessage2 = encoder.encodeMessage('!abc_');
-// console.log(encodedMessage2);
-// let decodedMessage2 = encoder.decodeMessage(encodedMessage2);
-// console.log(decodedMessage2);
-// console.log(encoder.totalProcessedCharacters('Encoded'));
+let encodedMessage = encoder.encodeMessage('the carthaginians are coming');
+console.log(encodedMessage);
+let decodedMessage = encoder.decodeMessage(encodedMessage);
+console.log(decodedMessage);
+console.log(encoder.totalProcessedCharacters('Both'));
+let encodedMessage2 = encoder.encodeMessage('!abc_');
+console.log(encodedMessage2);
+let decodedMessage2 = encoder.decodeMessage(encodedMessage2);
+console.log(decodedMessage2);
+console.log(encoder.totalProcessedCharacters('Encoded'));
 
 
 
