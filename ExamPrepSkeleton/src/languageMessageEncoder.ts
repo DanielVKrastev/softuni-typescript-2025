@@ -46,7 +46,19 @@ export class LanguageMessageEncoder<TLanguage extends Language, TCipher extends 
     }
 
     public totalProcessedCharacters(type: ProccessedCharsType ): string {
-        
+        let totalChars = 0;
+        switch(type) {
+            case "Encoded":
+                totalChars = this.encodedCount;
+                break;
+            case "Decoded":
+                totalChars = this.decodedCount;
+                break;
+            case "Both":
+                totalChars = this.encodedCount + this.decodedCount;
+                break;
+        }
+        return `Total processed characters count: ${totalChars}`;
     }
 
 }
