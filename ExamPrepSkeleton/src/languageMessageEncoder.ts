@@ -2,6 +2,7 @@ import { Cipher } from "./contracts/cipher";
 import { PartialMessageEncoder } from "./contracts/implemented/partialMessageEncoder";
 import { Language } from "./contracts/language";
 import { MessageEncoder } from "./contracts/messageEncoder";
+import { ProccessedCharsType } from "./types";
 
 export class LanguageMessageEncoder<TLanguage extends Language, TCipher extends Cipher<TLanguage>> extends PartialMessageEncoder implements MessageEncoder{
     private encodedCount = 0;
@@ -42,6 +43,10 @@ export class LanguageMessageEncoder<TLanguage extends Language, TCipher extends 
         const decodedMessage = this.cipher.decipher(secretMessage);
         this.decodedCount += decodedMessage.length;
         return decodedMessage;
+    }
+
+    public totalProcessedCharacters(type: ProccessedCharsType ): string {
+        
     }
 
 }

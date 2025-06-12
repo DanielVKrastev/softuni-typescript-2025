@@ -1,0 +1,1 @@
+export type ProccessedCharsType = 'Encoded' | 'Decoded' | 'Both';
